@@ -1,10 +1,13 @@
 import joblib
 import numpy as np
 import time
+import os
 
-# load model once
-pipeline = joblib.load("/app/models/pipeline.pkl")
-# =========================
+CURRENT_DIR = os.path.dirname(__file__)
+MODEL_PATH = os.path.join(CURRENT_DIR, "..", "..", "models", "pipeline.pkl")
+MODEL_PATH = os.path.abspath(MODEL_PATH)
+
+pipeline = joblib.load(MODEL_PATH)
 # FEATURE EXTRACTION
 # =========================
 def extract_features(text):

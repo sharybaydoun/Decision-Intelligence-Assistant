@@ -10,8 +10,12 @@ services:
     volumes:
       - ./backend/chroma_db:/app/chroma_db
       - ./backend/logs:/app/logs
+      - ~/.cache/huggingface:/root/.cache/huggingface
     env_file:
       - .env
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
 
   frontend:
     build: ./frontend

@@ -1,7 +1,8 @@
 from dotenv import load_dotenv
 import os
-
-load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
+print(os.getenv("OPENAI_API_KEY"))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 from fastapi import FastAPI
 from app.api.routes import ml, compare
